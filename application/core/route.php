@@ -9,8 +9,6 @@ class Route
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
-        var_dump($routes);
-
         if (!empty($routes[1])) {
             $controller_name = $routes[1];
         }
@@ -21,13 +19,9 @@ class Route
             $action_name = $rout[0];// $routes[2];
         }
 
-        var_dump($controller_name);
-        var_dump($action_name);
-
         $model_name = $controller_name . 'Model';
         $controller_name = $controller_name . 'Controller';
         $action_name = 'action_' . $action_name;
-
 
         $model_file = $model_name . '.php'; //strtolower($model_name) . '.php';
         $model_path = "application/models/" . $model_file;
