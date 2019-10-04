@@ -18,14 +18,10 @@ class NewsModel extends Model
     public function get_list($page)
     {
         $array_result = [];
-
         $connection = $this->connection;
-        $result = $connection->query('SELECT * FROM news');
-
 
         $no_of_records_per_page = 5;
         $offset = ($page - 1) * $no_of_records_per_page;
-
 
         $total_pages_sql = "SELECT COUNT(*) FROM news";
         $result = mysqli_query($connection, $total_pages_sql);
@@ -34,7 +30,6 @@ class NewsModel extends Model
 
         $sql = "SELECT * FROM news LIMIT $offset, $no_of_records_per_page";
         $result = mysqli_query($connection, $sql);
-
 
         while ($row = mysqli_fetch_assoc($result)) {
             array_push($array_result, ['id' => $row['id'], 'header' => $row['header'], 'content' => $row['content']]);
