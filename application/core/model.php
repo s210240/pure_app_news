@@ -10,7 +10,7 @@ class Model
 
     public function __construct()
     {
-        $this->connection = new mysqli("localhost", "root", "roman12roman", "pure_news");
+        $this->connection = new mysqli("localhost", "root", "password", "pure_news");
     }
 
 }
